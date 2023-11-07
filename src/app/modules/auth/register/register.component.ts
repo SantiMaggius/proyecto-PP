@@ -17,18 +17,20 @@ export class RegisterComponent {
   usuarios: Usuario = {
     uid: '',
     nombre: '',
-    contrasena: ''
+    contrasena: '',
+    email: '',
+    rol: ''
   }
 
   // tomando nuevo registro
   // ASYNC = ASINCRONICO
   async registrarse() {
     const credenciales = {
-      nombre: this.usuarios.nombre,
+      email: this.usuarios.email,
       contrasena: this.usuarios.contrasena
     };
 
-    const res = await this.servicioAuth.registrar(credenciales.nombre, credenciales.contrasena)
+    const res = await this.servicioAuth.registrar(credenciales.email, credenciales.contrasena)
       // método THEN devuelve misma promesa
       .then(res => {
         alert("Ha agregado un nuevo usuario con éxito :)");
