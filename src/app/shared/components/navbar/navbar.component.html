@@ -2,18 +2,18 @@
   <button mat-icon-button routerLink="/inicio" class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>home</mat-icon>
   </button>
-  <span>My App</span>
+  <span>All Books</span>
 
   <span class="example-spacer"></span>
 
-  <!-- ENRUTAMOS PÁGINAS -->
-  <button mat-button routerLink="/inicio">Inicio</button>
-  <button mat-button routerLink="/nosotros">Nosotros</button>
+  
+  <!-- Menu despegable para usuarios (registro y login)-->
+  <!-- Va a contener los formularios de acceso -->
 
-  <button mat-icon-button routerLink="/register">
-    <mat-icon>person</mat-icon>
-  </button>
-  <button mat-icon-button routerLink="/login">
-    <mat-icon>person_add</mat-icon>
-  </button>
+  <button mat-button [matMenuTriggerFor]="user"><mat-icon>person</mat-icon></button>
+  <mat-menu #user="matMenu">
+    <button mat-menu-item routerLink="/login">Iniciar Sesión <mat-icon>person</mat-icon></button>
+    <button mat-menu-item routerLink="/register">Registrarse <mat-icon>person_add</mat-icon></button>
+  </mat-menu>
+
 </mat-toolbar>
