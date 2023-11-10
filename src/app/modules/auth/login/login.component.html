@@ -5,17 +5,18 @@
 
         <mat-form-field appearance="fill">
             <mat-label>Ingrese su Email:</mat-label>
-            <input matInput>
+            <input [(ngModel)]="usuarios.email" matInput required>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Ingrese su contraseña:</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'">
+            <input [(ngModel)]="usuarios.contrasena" matInput [type]="hide ? 'password' : 'text'" required>
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
 
-        <button class="boton" mat-raised-button color="primary">Ingresar</button>
+        <button class="boton" mat-raised-button color="primary" (click)="iniciar()">Ingresar</button>
+        <button class="boton" mat-raised-button color="primary" (click)="salir()">Cerrar Sesión </button>
     </div>
 </div>
